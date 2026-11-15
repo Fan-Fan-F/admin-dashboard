@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopPulse · 电商数据看板</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">📊 ShopPulse</div>
+    <nav>
+      <a href="#" class="nav-item active">概览</a>
+      <a href="#" class="nav-item">订单</a>
+      <a href="#" class="nav-item">商品</a>
+      <a href="#" class="nav-item">客户</a>
+      <a href="#" class="nav-item">营销</a>
+      <a href="#" class="nav-item">设置</a>
+    </nav>
+    <div class="side-foot">演示数据 · 每日更新</div>
+  </aside>
+
+  <main class="content">
+    <header class="content-head">
+      <div>
+        <h1>经营概览</h1>
+        <p class="muted">近 30 天核心指标</p>
+      </div>
+      <select id="rangeSelect">
+        <option value="7">近 7 天</option>
+        <option value="30" selected>近 30 天</option>
+        <option value="90">近 90 天</option>
+      </select>
+    </header>
+
+    <section class="kpi-grid" id="kpiGrid"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>销售额趋势</h2>
+        <div class="legend">
+          <span><i class="dot" style="background:#6366f1"></i>销售额</span>
+          <span><i class="dot" style="background:#f59e0b"></i>订单量</span>
+        </div>
+      </div>
+      <canvas id="trendChart" height="240"></canvas>
+    </section>
+
+    <div class="grid2">
+      <section class="panel">
+        <div class="panel-head"><h2>品类销售占比</h2></div>
+        <canvas id="pieChart" height="220"></canvas>
+        <div id="pieLegend" class="pie-legend"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>热销商品 TOP 5</h2></div>
+        <table class="table" id="topProducts"></table>
+      </section>
+    </div>
+
+    <section class="panel">
+      <div class="panel-head"><h2>最新订单</h2><span class="muted" id="orderCount"></span></div>
+      <table class="table" id="recentOrders"></table>
+    </section>
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
